@@ -1,4 +1,4 @@
-package fi.hunludvig.aiven.KafkaPostgresAdaptor;
+package fi.hunludvig.aiven;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,5 +12,5 @@ public class KafkaPostgresAdaptorApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
+	
 }
