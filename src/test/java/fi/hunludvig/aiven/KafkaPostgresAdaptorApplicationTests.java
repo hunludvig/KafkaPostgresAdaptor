@@ -12,5 +12,4 @@ public class KafkaPostgresAdaptorApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-	
 }

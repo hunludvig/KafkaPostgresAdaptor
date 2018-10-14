@@ -18,7 +18,8 @@ public class RepositoryTest {
 	
 	@Test
 	public void testSaving() throws InterruptedException {
+		long oldCount = repository.count();
 		repository.save(new Diagnostic());
-		assumeThat(repository.count()).isGreaterThan(0);
+		assumeThat(repository.count()).isGreaterThan(oldCount);
 	}
 }
