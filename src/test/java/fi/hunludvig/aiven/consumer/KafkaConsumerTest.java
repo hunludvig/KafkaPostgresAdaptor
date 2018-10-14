@@ -2,12 +2,11 @@ package fi.hunludvig.aiven.consumer;
 
 import fi.hunludvig.aiven.kafka.KafkaTest;
 import fi.hunludvig.aiven.model.Diagnostic;
+
 import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +21,8 @@ import org.springframework.kafka.test.utils.KafkaTestUtils;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
 
 @RunWith(SpringRunner.class)
 public class KafkaConsumerTest extends KafkaTest {
