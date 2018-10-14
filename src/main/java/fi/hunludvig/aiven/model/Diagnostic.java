@@ -1,5 +1,6 @@
 package fi.hunludvig.aiven.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Diagnostic {
 
 	@Id

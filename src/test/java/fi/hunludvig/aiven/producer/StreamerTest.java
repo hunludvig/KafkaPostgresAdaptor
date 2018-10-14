@@ -23,7 +23,7 @@ public class StreamerTest {
 	
 	@Test
 	public void testRecurringSending() throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		verify(sender, atLeast(8)).send(any(Diagnostic.class));
 	}
 }

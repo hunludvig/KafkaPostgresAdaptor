@@ -15,7 +15,7 @@ public class DiagnosticsStreamer {
 	@Autowired
 	KafkaSender sender;
 	
-	@Scheduled(fixedRate = 100)
+	@Scheduled(fixedRate = 1000)
 	public void sendDiagnostics() {
 		Diagnostic diagnostic = diagnostics.getSystemStatistics();
 		sender.send(diagnostic);
