@@ -22,7 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.atLeast;
 
 @RunWith(SpringRunner.class)
 public class KafkaConsumerTest extends KafkaTest {
@@ -60,6 +60,6 @@ public class KafkaConsumerTest extends KafkaTest {
 		template.send(TOPIC, new Diagnostic());
 		LOGGER.debug("Diagnostic object sent");
 		Thread.sleep(1000);
-		verify(mockAdaptor, times(1)).saveToDatabase(any(Diagnostic.class));
+		verify(mockAdaptor, atLeast(1)).saveToDatabase(any(Diagnostic.class));
 	}
 }
