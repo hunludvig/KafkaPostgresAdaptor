@@ -58,7 +58,7 @@ public class KafkaConsumerTest extends KafkaTest {
 	public void testSend() throws InterruptedException {
 		template.send(TOPIC, new Diagnostic());
 		LOGGER.debug("Diagnostic object sent");
-		Thread.sleep(100);
+		Thread.sleep(1000);
 		verify(mockAdaptor, times(1)).saveToDatabase(any(Diagnostic.class));
 	}
 }
