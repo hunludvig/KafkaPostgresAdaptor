@@ -25,9 +25,9 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.test.utils.ContainerTestUtils;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -65,6 +65,7 @@ public class KafkaProducerTest {
 			records.add(record);
 		});
 		container.start();
+		ContainerTestUtils.waitForAssignment(container, 1);
 	}
 	
 	@After
@@ -74,7 +75,6 @@ public class KafkaProducerTest {
 
 	@Test
 	public void testSend() throws InterruptedException {
-		Thread.sleep(500);
 		sender.send(new Diagnostic());
 		ConsumerRecord<String, Diagnostic> received = records.poll(10, TimeUnit.SECONDS);
 		Assert.assertNotNull(received);
