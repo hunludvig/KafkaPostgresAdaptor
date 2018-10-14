@@ -12,9 +12,15 @@ public class SystemDiagnostics {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SystemDiagnostics.class);
 	
 	public Diagnostic getSystemStatistics() {
-		OperatingSystemMXBean myOsBean
+		OperatingSystemMXBean osBean
 			= ManagementFactory.getOperatingSystemMXBean();
 		
-		return new Diagnostic();
+		return new Diagnostic(
+			osBean.getName(),
+			osBean.getArch(),
+			osBean.getAvailableProcessors(),
+			osBean.getSystemLoadAverage(),
+			System.currentTimeMillis()
+		);
 	}
 }
