@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class KafkaSender {
 	private static final Logger LOGGER = getLogger(KafkaSender.class);
 	
-	@Value("${fi.hunludvig.aiven.producer.topic}")
+	@Value("${fi.hunludvig.aiven.topic}")
 	private String TOPIC;
 	
 	@Autowired

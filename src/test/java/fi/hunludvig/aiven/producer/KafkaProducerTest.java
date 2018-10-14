@@ -47,7 +47,7 @@ public class KafkaProducerTest extends KafkaTest{
 		container = new KafkaMessageListenerContainer<>(consumerFactory, containerProperties);
 		records = new LinkedBlockingQueue<>();
 		container.setupMessageListener((MessageListener<String, Diagnostic>) (ConsumerRecord<String, Diagnostic> record) -> {
-			LOGGER.debug("test-listener received message='{}'", record.toString());
+			LOGGER.debug("Message received [{}]", record.toString());
 			records.add(record);
 		});
 		container.start();

@@ -11,7 +11,7 @@ import org.springframework.test.context.TestPropertySource;
 @DirtiesContext
 @TestPropertySource(properties = "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}")
 public class KafkaTest {
-	@Value("${fi.hunludvig.aiven.producer.topic}")
+	@Value("${fi.hunludvig.aiven.topic}")
 	protected String TOPIC;
 
 	@ClassRule
