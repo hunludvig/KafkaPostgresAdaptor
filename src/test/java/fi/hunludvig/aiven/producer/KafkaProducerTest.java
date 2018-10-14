@@ -1,5 +1,6 @@
 package fi.hunludvig.aiven.producer;
 
+import fi.hunludvig.aiven.kafka.KafkaTest;
 import fi.hunludvig.aiven.model.Diagnostic;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
@@ -8,39 +9,24 @@ import java.util.concurrent.TimeUnit;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.ClassRule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.KafkaMessageListenerContainer;
 import org.springframework.kafka.listener.MessageListener;
 import org.springframework.kafka.listener.config.ContainerProperties;
-import org.springframework.kafka.test.rule.KafkaEmbedded;
 import org.springframework.kafka.test.utils.KafkaTestUtils;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import org.junit.Assert;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.test.utils.ContainerTestUtils;
+import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
-@DirtiesContext
-@TestPropertySource(properties = "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}")
-public class KafkaProducerTest {
+public class KafkaProducerTest extends KafkaTest{
 	private static final Logger LOGGER = LoggerFactory.getLogger(KafkaProducerTest.class);
-	
-	@Value("${fi.hunludvig.aiven.producer.topic}")
-	private String TOPIC;
-
-	@ClassRule
-	public static KafkaEmbedded embeddedKafka = new KafkaEmbedded(1, true);
 
 	private KafkaMessageListenerContainer<String, Diagnostic> container;
 
