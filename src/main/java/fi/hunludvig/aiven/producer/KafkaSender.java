@@ -19,8 +19,6 @@ public class KafkaSender {
 	@Autowired
 	private KafkaTemplate<String, Diagnostic> template;
 	
-	private JsonSerializer<Diagnostic> serializer = new JsonSerializer<>();
-	
 	public void send(Diagnostic diagnostic) {
 		template.send(TOPIC, diagnostic);
 	}
